@@ -1,11 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './styles/theme';
+import { SignIn } from './pages/Home/SignIn';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className='App'>
-        <h1>test</h1>
+      <div className='App' data-testid='app'>
+        <SignIn />
       </div>
     </ThemeProvider>
   );
