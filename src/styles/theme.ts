@@ -1,8 +1,9 @@
 // @ts-nocheck
+
 import { createMuiTheme } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 
-const theme = createMuiTheme({
+export const theme = createMuiTheme({
   typography: {
     fontFamily: [
       'system-ui',
@@ -11,14 +12,14 @@ const theme = createMuiTheme({
       'Segoe UI',
       'Roboto',
       'Ubuntu',
-      'Helvica Neue',
+      'Helvetica Neue',
       'sans-serif',
     ],
   },
   palette: {
     primary: {
       main: 'rgb(29, 161, 242)',
-      dark: 'rgb(26, 145, 215)',
+      dark: 'rgb(26, 145, 218)',
       contrastText: '#fff',
     },
     secondary: {
@@ -39,6 +40,7 @@ const theme = createMuiTheme({
         textTransform: 'none',
         fontSize: 16,
         height: 40,
+        fontWeight: 700,
       },
       textPrimary: {
         paddingLeft: 20,
@@ -55,7 +57,7 @@ const theme = createMuiTheme({
         },
         '&:before': {
           borderColor: '#000',
-          BorderBottomWidth: '2px',
+          borderBottomWidth: '2px',
         },
       },
       input: {
@@ -69,7 +71,12 @@ const theme = createMuiTheme({
     },
     MuiDialogActions: {
       root: {
-        borderBottom: '1px solid rgb(204, 214,221)',
+        marginBottom: 8,
+      },
+    },
+    MuiDialogTitle: {
+      root: {
+        borderBottom: '1px solid rgb(204, 214, 221)',
         marginBottom: 10,
         padding: '10px 15px',
         '& h2': {

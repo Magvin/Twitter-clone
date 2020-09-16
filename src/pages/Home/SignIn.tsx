@@ -4,6 +4,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import FormDialog from '../../components/Dialog/Dialog';
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -51,9 +52,10 @@ const useStyles = makeStyles((theme) => ({
   twitterIconBig: {
     fontSize: '175vh',
     position: 'absolute',
-    left: '-15%',
-    bottom: '-40%',
+    left: '50%',
+    top: '50%',
     color: 'rgba(29,161,242,1.00)',
+    transform: 'translate(-50%, -50%)',
   },
   loginSideWrapper: {
     width: 380,
@@ -102,13 +104,18 @@ export function SignIn() {
           <Typography className={classes.loginSideJoin}>
             <b>Join Twitter today.</b>
           </Typography>
-          <Button
-            className={classes.loginSideButton}
-            variant='contained'
-            color='primary'
-            fullWidth>
-            Sign up
-          </Button>
+          <FormDialog
+            button={[
+              {
+                className: classes.loginSideButton,
+                variant: 'contained',
+                color: 'primary',
+                fullWidth: true,
+                text: 'SignUp',
+              },
+            ]}
+          />
+
           <Button
             className={classes.loginSideButton}
             variant='outlined'
