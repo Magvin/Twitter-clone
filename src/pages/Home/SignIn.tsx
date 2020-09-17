@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchSharpIcon from '@material-ui/icons/SearchSharp';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
@@ -111,18 +111,53 @@ export function SignIn() {
                 variant: 'contained',
                 color: 'primary',
                 fullWidth: true,
-                text: 'SignUp',
+                text: 'Sign up',
+                dialogTitle: 'Create your account',
+                typeOpen: 'register',
+                fields: [
+                  {
+                    margin: 'dense',
+                    id: 'name',
+                    label: 'Name',
+                    type: 'text',
+                    fullWidth: true,
+                    variant: 'filled',
+                    autoFocus: true,
+                    required: true,
+                  },
+                  {
+                    margin: 'dense',
+                    id: 'email',
+                    label: 'Email',
+                    type: 'email',
+                    fullWidth: true,
+                    variant: 'filled',
+                    required: true,
+                  },
+                ],
+              },
+              {
+                className: classes.loginSideButton,
+                variant: 'outlined',
+                color: 'primary',
+                fullWidth: true,
+                text: 'Log in',
+                dialogTitle: 'Log in to Twitter',
+                typeOpen: 'login',
+                fields: [
+                  {
+                    fieldName: 'Email',
+                    margin: 'dense',
+                    id: 'email',
+                    label: 'Email',
+                    type: 'email',
+                    fullWidth: true,
+                    variant: 'filled',
+                  },
+                ],
               },
             ]}
           />
-
-          <Button
-            className={classes.loginSideButton}
-            variant='outlined'
-            color='primary'
-            fullWidth>
-            Log in
-          </Button>
         </div>
       </section>
     </div>
