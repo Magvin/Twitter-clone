@@ -50,6 +50,11 @@ export const theme = createMuiTheme({
         borderColor: 'rgb(29, 161, 243)',
       },
     },
+    MuiIconButton: {
+      root: {
+        transition: '0.2s all',
+      },
+    },
     MuiFilledInput: {
       underline: {
         '&:after': {

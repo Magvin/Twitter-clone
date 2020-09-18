@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function SignIn() {
+export const SignIn: React.FC = (): React.ReactElement => {
   const classes = useStyles();
   return (
     <div className={classes.wrapper}>
@@ -113,7 +113,7 @@ export function SignIn() {
                 fullWidth: true,
                 text: 'Sign up',
                 dialogTitle: 'Create your account',
-                typeOpen: 'register',
+                typeOpen: 'Register',
                 fields: [
                   {
                     margin: 'dense',
@@ -134,6 +134,24 @@ export function SignIn() {
                     variant: 'filled',
                     required: true,
                   },
+                  {
+                    fieldName: 'Password',
+                    margin: 'dense',
+                    id: 'password',
+                    label: 'Password',
+                    type: 'password',
+                    fullWidth: true,
+                    variant: 'filled',
+                  },
+                  {
+                    fieldName: 'Confirm password',
+                    margin: 'dense',
+                    id: 'confirm-password',
+                    label: 'Confirm password',
+                    type: 'password',
+                    fullWidth: true,
+                    variant: 'filled',
+                  },
                 ],
               },
               {
@@ -143,7 +161,7 @@ export function SignIn() {
                 fullWidth: true,
                 text: 'Log in',
                 dialogTitle: 'Log in to Twitter',
-                typeOpen: 'login',
+                typeOpen: 'Login',
                 fields: [
                   {
                     fieldName: 'Email',
@@ -151,6 +169,15 @@ export function SignIn() {
                     id: 'email',
                     label: 'Email',
                     type: 'email',
+                    fullWidth: true,
+                    variant: 'filled',
+                  },
+                  {
+                    fieldName: 'Password',
+                    margin: 'dense',
+                    id: 'password',
+                    label: 'Password',
+                    type: 'password',
                     fullWidth: true,
                     variant: 'filled',
                   },
@@ -162,4 +189,4 @@ export function SignIn() {
       </section>
     </div>
   );
-}
+};

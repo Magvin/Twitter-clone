@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles, createStyles } from '@material-ui/core';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import { FormControlClassKey as MUIFormControlClassKey } from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -15,12 +16,19 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 
-export type FormControlClassKey = MUIFormControlClassKey | 'title';
+export type FormControlClassKey =
+  | MUIFormControlClassKey
+  | 'title'
+  | 'twitterIcon';
 
 const styles = createStyles<FormControlClassKey, {}>({
   title: {
     justifyContent: 'center',
     display: 'flex',
+  },
+  twitterIcon: {
+    margin: '0 auto',
+    height: '1.75rem',
   },
 
   // Hoist MUI classes. Necessary to allow pass through of MUI classes
@@ -34,6 +42,7 @@ type OwnProps = {
   button: React.ReactNode;
   classes: {
     title: string;
+    twitterIcon: string;
   };
 };
 type OwnState = {
@@ -60,23 +69,25 @@ class FormDialog extends React.Component<OwnProps, OwnState> {
   };
 
   handleClickOpen = (typeOpen: string) => {
-    if (typeOpen === 'register') {
+    if (typeOpen === 'Register') {
       this.setState({
         openRegister: true,
+        openLogIn: false,
       });
-    } else if (typeOpen === 'login') {
+    } else if (typeOpen === 'Login') {
       this.setState({
         openLogIn: true,
+        openRegister: false,
       });
     }
   };
 
   handleClose = (typeOpen: string) => {
-    if (typeOpen === 'register') {
+    if (typeOpen === 'Register') {
       this.setState({
         openRegister: false,
       });
-    } else if (typeOpen === 'login') {
+    } else if (typeOpen === 'Login') {
       this.setState({
         openLogIn: false,
       });
@@ -104,13 +115,14 @@ class FormDialog extends React.Component<OwnProps, OwnState> {
         </Button>
         <Dialog
           open={
-            item.typeOpen === 'register' && this.state.openRegister
+            item.typeOpen === 'Register' && this.state.openRegister
               ? true
-              : this.state.openLogIn
+              : item.typeOpen === 'Login' && this.state.openLogIn
           }
           onClose={() => this.handleClose(item.typeOpen)}
           aria-labelledby='form-dialog-title'
           id={`dialog-${item.text.replace(/ /g, '')}`}>
+          <TwitterIcon className={classes.twitterIcon} color='primary' />
           <DialogTitle id='form-dialog-title' className={classes.title}>
             {item.dialogTitle}
           </DialogTitle>
@@ -127,16 +139,16 @@ class FormDialog extends React.Component<OwnProps, OwnState> {
                 required={field.required || false}
               />
             ))}
-            {item.typeOpen === 'register' ? (
+            {item.typeOpen === 'Register' ? (
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <Grid container justify='space-around'>
+                <Grid container>
                   <KeyboardDatePicker
                     disableToolbar
-                    variant='inline'
+                    variant='dialog'
                     format='MM/dd/yyyy'
                     margin='normal'
                     id='date-picker-inline'
-                    label='Date picker inline'
+                    label='Date of birth'
                     value={this.state.selectedDate}
                     onChange={this.handleDateChange}
                     KeyboardButtonProps={{
@@ -157,7 +169,7 @@ class FormDialog extends React.Component<OwnProps, OwnState> {
               onClick={() => this.handleClose(item.typeOpen)}
               color='primary'
               variant='contained'>
-              Log in
+              {item.typeOpen}
             </Button>
           </DialogActions>
         </Dialog>
