@@ -10,9 +10,20 @@ import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutline
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import UserIcon from '@material-ui/icons/PermIdentityOutlined';
 
-import { Button, IconButton, makeStyles, Typography } from '@material-ui/core';
+import {
+  Button,
+  IconButton,
+  makeStyles,
+  TextField,
+  Typography,
+} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+  main: {
+    borderColor: 'rgb(230, 236, 240)',
+    borderWidth: 1,
+    borderStyle: 'solid',
+  },
   iconTypography: {
     marginLeft: 20,
     marginRight: 15,
@@ -51,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
   },
   twitterIcon: {
     marginLeft: 4,
+    '& svg': {
+      color: 'rgb(29, 161, 242)',
+    },
   },
   iconStyles: {
     fontSize: 28.25,
@@ -130,11 +144,11 @@ export const Home = () => {
           </li>
         </ul>
       </Grid>
-      <Grid item xs={5}>
+      <Grid item xs={5} className={classes.main}>
         <Grid container>center</Grid>
       </Grid>
       <Grid item xs={4}>
-        <Grid container>right</Grid>
+        <TextField label='Search Twitter' />
       </Grid>
     </Grid>
   );
