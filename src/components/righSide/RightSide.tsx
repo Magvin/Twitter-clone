@@ -19,6 +19,18 @@ export const RightSide = () => {
           },
         ]}
       />
+      <Block
+        title='Who to follow'
+        whoToFollow={[
+          {
+            title: 'eToro',
+            image:
+              'https://pbs.twimg.com/profile_images/1240616877325418496/G7L-f-8b_bigger.jpg',
+            follow: () => {},
+            userName: '@eToro',
+          },
+        ]}
+      />
     </>
   );
 };
